@@ -12,6 +12,7 @@ public class Seat {
     private long id;
     private String categoryName;
     private long hallId;
+    private boolean isTaken;
 
     public long getId() {
         return id;
@@ -35,5 +36,13 @@ public class Seat {
 
     public void setHallId(long hallId) {
         this.hallId = hallId;
+    }
+
+    public boolean isTaken() {
+        return isTaken;
+    }
+
+    public void setTaken(boolean taken) {
+        isTaken = taken;
     }
 }

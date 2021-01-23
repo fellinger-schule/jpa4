@@ -1,16 +1,20 @@
 package at.htl.workloads.employee;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.Id;
 
 @Entity
 public class Employee {
     /*TODO Wie regeln wir die Ids für Person to Employee? */
 
+
     @Id
     private long id;
     private long departmentId;
     private float salary;
+
+
 
     public long getId() {
         return id;
