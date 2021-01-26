@@ -15,7 +15,7 @@ public class SeatServiceImpl implements SeatService{
 
     @Override
     public Seat getSeatById(long id) {
-        return null;
+        return seatRepository.getSeatById(id);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class SeatServiceImpl implements SeatService{
 
     @Override
     public List<Seat> getAllSeats() {
-        return null;
+        return seatRepository.getAllSeats();
     }
 
     public Seat convertIntoNormal(SeatDTO seat){

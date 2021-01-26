@@ -17,7 +17,7 @@ public class DepartmentServiceImpl implements DepartmentService{
     @Override
     public Department getDepartmentById(long id) {
 
-        return null;
+        return departmentRepository.getDepartmentById(id);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 
     @Override
     public List<Department> getAllDepartments() {
-        return null;
+        return departmentRepository.getAllDepartments();
     }
 
     public Department convertIntoNormal(DepartmentDTO dept){

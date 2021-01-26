@@ -16,7 +16,7 @@ public class ShowServiceImpl implements ShowService{
 
     @Override
     public Show getShowById(long id) {
-        return null;
+        return showRepository.getShowById(id);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class ShowServiceImpl implements ShowService{
 
     @Override
     public List<Show> getAllShows() {
-        return null;
+        return showRepository.getAllShows();
     }
 
     public Show convertIntoNormal(ShowDTO show){

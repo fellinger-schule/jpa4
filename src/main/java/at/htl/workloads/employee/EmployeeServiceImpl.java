@@ -16,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee getEmpById(long id) {
-        return null;
+        return employeeRepositor.getEmpById(id);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public List<Employee> getAllEmployees() {
-        return null;
+        return employeeRepositor.getAllEmployees();
     }
 
     public Employee convertIntoNormal(EmployeeDTO emp){

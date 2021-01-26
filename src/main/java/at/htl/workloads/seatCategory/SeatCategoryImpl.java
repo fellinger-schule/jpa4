@@ -13,7 +13,7 @@ public class SeatCategoryImpl implements SeatCategory{
 
     @Override
     public SeatCatigory getSeatCatById(long id) {
-        return null;
+        return seatCategoryRepository.getSeatCatById(id);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class SeatCategoryImpl implements SeatCategory{
 
     @Override
     public List<SeatCatigory> getAllSeatCat() {
-        return null;
+        return seatCategoryRepository.getAllSeatCat();
     }
 
     public SeatCatigory convertIntoNormal(SeatCategoryDTO seat){

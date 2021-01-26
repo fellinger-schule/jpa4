@@ -15,7 +15,7 @@ public class TicketServiceImpl implements TicketService{
 
     @Override
     public Ticket getTicketById(long id) {
-        return null;
+        return ticketRepository.getTicketById(id);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class TicketServiceImpl implements TicketService{
 
     @Override
     public List<Ticket> getAllTickets() {
-        return null;
+        return ticketRepository.getAllTickets();
     }
 
     public Ticket convertIntoNormal(TicketDTO ticket){

@@ -15,7 +15,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie getMovieById(long id) {
-        return null;
+        return movieRepository.getMovieById(id);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<Movie> getAllMovies() {
-        return null;
+        return movieRepository.getAllMovies();
     }
 
     public Movie convertIntoNormal(MovieDTO movie){

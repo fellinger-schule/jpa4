@@ -15,7 +15,7 @@ public class HallServiceImpl implements HallService{
 
     @Override
     public Hall getHallById(long id) {
-        return null;
+        return hallRepository.getHallById(id);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class HallServiceImpl implements HallService{
 
     @Override
     public List<Hall> getAllHalls() {
-        return null;
+        return hallRepository.getAllHalls();
     }
 
     public Hall convertIntoNormal(HallDTO hall){
