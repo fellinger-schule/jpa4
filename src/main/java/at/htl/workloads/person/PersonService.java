@@ -13,4 +13,12 @@ public interface PersonService {
     List<Object[]> getAllAddresses();
     List<Object[]> getCityNames();
     List<AwesomePeopleCount> getAwesomePeopleCount();
+
+/*
+    Person getPersonById(String ssn);
+    void addPerson(Person person);
+    List<Person> getAllPeople();
+    List<Object[]> getAllPeopleWithAddresses();
+    List<Object[]> getCityNames();
+    List<AwesomePeopleCount> getAwesomePeopleCount();*/
 }
