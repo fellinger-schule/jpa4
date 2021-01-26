@@ -1,10 +1,12 @@
 package at.htl.workloads.ticket;
 
+import at.htl.model.kino.TicketDTO;
+
 import java.util.List;
 
 public interface TicketService {
     Ticket getTicketById(long id);
-    boolean addTicket(Ticket ticket);
-    boolean removeTicket(Ticket ticket);
+    boolean addTicket(TicketDTO ticket);
+    boolean removeTicket(TicketDTO ticket);
     List<Ticket> getAllTickets();
 }

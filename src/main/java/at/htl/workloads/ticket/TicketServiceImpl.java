@@ -1,5 +1,9 @@
 package at.htl.workloads.ticket;
 
+import at.htl.model.kino.ShowDTO;
+import at.htl.model.kino.TicketDTO;
+import at.htl.workloads.show.Show;
+
 import java.util.List;
 
 public class TicketServiceImpl implements TicketService{
@@ -15,17 +19,39 @@ public class TicketServiceImpl implements TicketService{
     }
 
     @Override
-    public boolean addTicket(Ticket ticket) {
-        return false;
+    public boolean addTicket(TicketDTO ticket) {
+        var exists = ticketRepository.getTicketById((ticket.getId()));
+        if (exists != null) {
+            return false;
+        }
+        var newshow = convertIntoNormal(ticket);
+        ticketRepository.addTicket(newshow);
+        return true;
     }
 
     @Override
-    public boolean removeTicket(Ticket ticket) {
-        return false;
+    public boolean removeTicket(TicketDTO ticket) {
+        var exists = ticketRepository.getTicketById((ticket.getId()));
+        if (exists != null) {
+            return false;
+        }
+        var newshow = convertIntoNormal(ticket);
+        ticketRepository.removeTicket(newshow);
+        return true;
     }
 
     @Override
     public List<Ticket> getAllTickets() {
         return null;
+    }
+
+    public Ticket convertIntoNormal(TicketDTO ticket){
+        var newticket = new Ticket();
+        newticket.setCustomerId(ticket.getCustomerId());
+        newticket.setId(ticket.getId());
+        newticket.setMovieId(ticket.getMovieId());
+        newticket.setPrice(ticket.getPrice());
+        newticket.setPurchase_date(ticket.getPurchase_date());
+        return newticket;
     }
 }

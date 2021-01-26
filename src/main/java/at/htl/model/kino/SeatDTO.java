@@ -3,6 +3,7 @@ public class SeatDTO {
     private long id;
     private String categoryName;
     private long hallId;
+    private boolean taken;
 
     public SeatDTO() {
     }
@@ -11,6 +12,14 @@ public class SeatDTO {
         this.id = id;
         this.categoryName = categoryName;
         this.hallId = hallId;
+    }
+
+    public boolean isTaken() {
+        return taken;
+    }
+
+    public void setTaken(boolean taken) {
+        this.taken = taken;
     }
 
     public long getId() {

@@ -1,5 +1,7 @@
 package at.htl.workloads.seatCategory;
 
+import at.htl.model.kino.SeatCategoryDTO;
+
 import java.util.List;
 
 public class SeatCategoryImpl implements SeatCategory{
@@ -15,17 +17,39 @@ public class SeatCategoryImpl implements SeatCategory{
     }
 
     @Override
-    public boolean addSeatCat(SeatCatigory seatCatigory) {
-        return false;
+    public boolean addSeatCat(SeatCategoryDTO seatCatigory) {
+        var exists = seatCategoryRepository.getSeatCatById(seatCatigory.getId());
+        if (exists != null) {
+            return false;
+        }
+        var newseat = convertIntoNormal(seatCatigory);
+
+        seatCategoryRepository.addSeatCat(newseat);
+        return true;
     }
 
     @Override
-    public boolean RemoveSeatCat(SeatCatigory seatCatigory) {
-        return false;
+    public boolean RemoveSeatCat(SeatCategoryDTO seatCatigory) {
+        var exists = seatCategoryRepository.getSeatCatById(seatCatigory.getId());
+        if (exists != null) {
+            return false;
+        }
+        var newseat = convertIntoNormal(seatCatigory);
+
+        seatCategoryRepository.RemoveSeatCat(newseat);
+        return true;
     }
 
     @Override
     public List<SeatCatigory> getAllSeatCat() {
         return null;
+    }
+
+    public SeatCatigory convertIntoNormal(SeatCategoryDTO seat){
+        var newseat = new SeatCatigory();
+        newseat.setCategoryName(seat.getCategoryName());
+        newseat.setPrice(seat.getPrice());
+        newseat.setId(seat.getId());
+        return newseat;
     }
 }

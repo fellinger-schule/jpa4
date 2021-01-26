@@ -1,10 +1,12 @@
 package at.htl.workloads.show;
 
+import at.htl.model.kino.ShowDTO;
+
 import java.util.List;
 
 public interface ShowService {
     Show getShowById(long id );
-    boolean addShow(Show show);
-    boolean removeShow(Show show);
+    boolean addShow(ShowDTO show);
+    boolean removeShow(ShowDTO show);
     List<Show> getAllShows();
 }

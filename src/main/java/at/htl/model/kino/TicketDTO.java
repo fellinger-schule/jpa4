@@ -1,9 +1,14 @@
 package at.htl.model.kino;
+
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class TicketDTO {
     private long id;
     private long movieId;
     private long customerId;
     private float price ;
+    private LocalDateTime purchase_date;
 
     public TicketDTO() {
     }
@@ -13,6 +18,14 @@ public class TicketDTO {
         this.movieId = movieId;
         this.customerId = customerId;
         this.price = price;
+    }
+
+    public LocalDateTime getPurchase_date() {
+        return purchase_date;
+    }
+
+    public void setPurchase_date(LocalDateTime purchase_date) {
+        this.purchase_date = purchase_date;
     }
 
     public long getId() {
