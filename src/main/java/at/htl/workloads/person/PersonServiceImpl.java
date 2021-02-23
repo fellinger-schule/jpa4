@@ -1,8 +1,6 @@
 package at.htl.workloads.person;
 
-import at.htl.model.person.AddressDTO;
-import at.htl.model.person.PersonDTO;
-import at.htl.workloads.AwesomePeopleCount;
+import at.htl.model.kino.PersonDTO;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.List;
@@ -18,19 +16,14 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public boolean addPerson(PersonDTO newPerson) {
-        var existingPerson = personRepository.getPersonById(newPerson.getSSN());
+        var existingPerson = personRepository.getPersonById(newPerson.getId());
         if (existingPerson != null) {
             return false;
         }
 
         var person = new Person();
-        person.setSSN(newPerson.getSSN());
-        person.setDateOfBirth(newPerson.getDateOfBirth());
-        person.setFirstName(newPerson.getFirstName());
-        person.setLastName(newPerson.getLastName());
-        person.setAwesome(newPerson.isAwesome());
-        person.setAwesomeness(newPerson.getAwesomeness());
-        person.setWealth(newPerson.getWealth());
+        person.setId(newPerson.getId());
+        person.setName(newPerson.getName());
         personRepository.addPerson(person);
         return true;
     }
@@ -40,25 +33,4 @@ public class PersonServiceImpl implements PersonService {
         return personRepository.getAllPeople();
     }
 
-    @Override
-    public boolean addAddress(AddressDTO newAddress) {
-        var person = this.personRepository.getPersonById(newAddress.getPersonId());
-        person.addAddress(newAddress.getCity(), newAddress.getCountry(), newAddress.getHouseNo(), newAddress.getStreet());
-        return true;
-    }
-
-    @Override
-    public List<Object[]> getAllAddresses() {
-        return personRepository.getAllPeopleWithAddresses();
-    }
-
-    @Override
-    public List<Object[]> getCityNames() {
-        return personRepository.getCityNames();
-    }
-
-    @Override
-    public List<AwesomePeopleCount> getAwesomePeopleCount() {
-        return personRepository.getAwesomePeopleCount();
-    }
 }

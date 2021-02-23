@@ -1,8 +1,6 @@
 package at.htl.workloads.department;
 
-import at.htl.model.kino.CustomerDTO;
 import at.htl.model.kino.DepartmentDTO;
-import at.htl.workloads.customer.Customer;
 
 import java.util.List;
 

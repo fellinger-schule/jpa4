@@ -1,13 +1,6 @@
 package at.htl.workloads.person;
 
-import at.htl.workloads.adress.Address;
-import at.htl.workloads.adress.AddressId;
-
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Person {

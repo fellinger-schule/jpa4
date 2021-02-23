@@ -1,9 +1,6 @@
 package at.htl.workloads.show;
 
-import at.htl.model.kino.SeatDTO;
 import at.htl.model.kino.ShowDTO;
-import at.htl.workloads.person.PersonRepository;
-import at.htl.workloads.seat.Seat;
 
 import java.util.List;
 

@@ -1,6 +1,5 @@
 package at.htl.api;
-
-import at.htl.model.person.PersonDTO;
+import at.htl.model.kino.PersonDTO;
 import at.htl.workloads.person.PersonService;
 
 import javax.print.attribute.standard.Media;
@@ -36,19 +35,19 @@ public class PersonResource {
         return Response.ok(people).build();
     }
 
-    @GET
-    @Path("citynames")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getCityNames(){
-        var people = personService.getCityNames();
-        return Response.ok(people).build();
-    }
+    //@GET
+    //@Path("citynames")
+    //@Produces(MediaType.APPLICATION_JSON)
+    //public Response getCityNames(){
+    //    var people = personService.getCityNames();
+    //    return Response.ok(people).build();
+    //}
 
-    @GET
-    @Path("awesomepeoplecount")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getAwesomePeopleCount(){
-        var awesomePeopleCount = personService.getAwesomePeopleCount();
-        return Response.ok(awesomePeopleCount).build();
-    }
+    //@GET
+    //@Path("awesomepeoplecount")
+    //@Produces(MediaType.APPLICATION_JSON)
+    //public Response getAwesomePeopleCount(){
+    //    var awesomePeopleCount = personService.getAwesomePeopleCount();
+    //    return Response.ok(awesomePeopleCount).build();
+    //}
 }

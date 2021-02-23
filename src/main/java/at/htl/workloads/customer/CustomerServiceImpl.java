@@ -1,8 +1,6 @@
 package at.htl.workloads.customer;
 
 import at.htl.model.kino.CustomerDTO;
-import at.htl.model.person.PersonDTO;
-import at.htl.workloads.person.PersonRepository;
 
 import java.util.List;
 

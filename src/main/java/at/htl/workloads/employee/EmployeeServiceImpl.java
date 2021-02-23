@@ -1,9 +1,6 @@
 package at.htl.workloads.employee;
 
-import at.htl.model.kino.DepartmentDTO;
 import at.htl.model.kino.EmployeeDTO;
-import at.htl.workloads.department.Department;
-import at.htl.workloads.person.PersonRepository;
 
 import java.util.List;
 

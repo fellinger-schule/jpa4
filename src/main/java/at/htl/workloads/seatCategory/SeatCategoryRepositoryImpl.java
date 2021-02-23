@@ -1,7 +1,5 @@
 package at.htl.workloads.seatCategory;
 
-import at.htl.workloads.employee.Employee;
-import at.htl.workloads.person.Person;
 
 import javax.persistence.EntityManager;
 import java.util.List;

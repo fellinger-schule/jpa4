@@ -1,8 +1,6 @@
 package at.htl.workloads.seat;
 
-import at.htl.model.kino.MovieDTO;
 import at.htl.model.kino.SeatDTO;
-import at.htl.workloads.movie.Movie;
 
 import java.util.List;
 

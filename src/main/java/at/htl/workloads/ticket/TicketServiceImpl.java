@@ -1,8 +1,6 @@
 package at.htl.workloads.ticket;
 
-import at.htl.model.kino.ShowDTO;
 import at.htl.model.kino.TicketDTO;
-import at.htl.workloads.show.Show;
 
 import java.util.List;
 

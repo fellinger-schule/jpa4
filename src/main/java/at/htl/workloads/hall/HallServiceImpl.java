@@ -1,8 +1,6 @@
 package at.htl.workloads.hall;
 
-import at.htl.model.kino.EmployeeDTO;
 import at.htl.model.kino.HallDTO;
-import at.htl.workloads.employee.Employee;
 
 import java.util.List;
 
