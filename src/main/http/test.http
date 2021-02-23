@@ -1,15 +1,4 @@
-POST http://localhost:8080/api/person
-Content-Type: application/json
-
-{
-  "SSN": "123456789",
-  "dateOfBirth": "2021-01-01",
-  "firstName": "Hans",
-  "lastName": "Wurst",
-  "isAwesome": false,
-  "awesomeness": 2.3,
-  "wealth": 122.56
-}
+GET http://localhost:8080/api/Csv/init
 
 ###
 
