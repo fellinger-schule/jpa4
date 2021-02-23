@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-
 public class Ticket {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

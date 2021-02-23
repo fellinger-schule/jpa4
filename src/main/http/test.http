@@ -1,8 +1,8 @@
-GET http://localhost:8080/api/Csv/init
+GET http://localhost:8989/api/Csv/init
 
 ###
 
-POST http://localhost:8080/api/person
+POST http://localhost:5432/api/person
 Content-Type: application/json
 
 {
