@@ -22,7 +22,7 @@ public class PersonRepositoryImpl implements PersonRepository {
 
     @Override
     public void addPerson(Person person) {
-        entityManager.persist(person);
+        entityManager.merge(person);
     }
 
     @Override

@@ -1,4 +1,8 @@
-GET http://localhost:8989/api/Csv/init
+GET http://localhost:8987/api/Csv/PersonInit
+
+###
+
+GET http://localhost:8987/api/Csv/HallInit
 
 ###
 
