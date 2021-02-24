@@ -2,8 +2,10 @@ package at.htl.workloads.seat;
 
 import at.htl.model.kino.SeatDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 public class SeatServiceImpl implements SeatService{
     private final SeatRepository seatRepository;
 

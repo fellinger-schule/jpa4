@@ -2,8 +2,10 @@ package at.htl.workloads.movie;
 
 import at.htl.model.kino.MovieDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 public class MovieServiceImpl implements MovieService {
     private final MovieRepository movieRepository;
 
@@ -28,13 +30,12 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public boolean removeMovie(MovieDTO movie) {
-        var exists = movieRepository.getMovieById((movie.getId()));
+    public boolean removeMovie(long id) {
+        var exists = movieRepository.getMovieById(id);
         if (exists != null) {
             return false;
         }
-        var newcustomer = convertIntoNormal(movie);
-        movieRepository.removeMovie(newcustomer);
+        movieRepository.removeMovie(exists);
         return true;
     }
 

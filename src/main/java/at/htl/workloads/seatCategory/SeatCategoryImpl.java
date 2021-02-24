@@ -2,8 +2,10 @@ package at.htl.workloads.seatCategory;
 
 import at.htl.model.kino.SeatCategoryDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 public class SeatCategoryImpl implements SeatCategory{
     private final SeatCategoryRepository seatCategoryRepository;
 

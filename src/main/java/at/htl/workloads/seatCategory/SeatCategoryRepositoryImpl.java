@@ -1,9 +1,11 @@
 package at.htl.workloads.seatCategory;
 
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@RequestScoped
 public class SeatCategoryRepositoryImpl implements SeatCategoryRepository{
     private final EntityManager entityManager;
 

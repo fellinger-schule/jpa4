@@ -1,9 +1,11 @@
 package at.htl.workloads.show;
 
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@RequestScoped
 public class ShowRepositoryImpl implements ShowRepository {
     private final EntityManager entityManager;
 

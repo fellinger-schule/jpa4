@@ -2,8 +2,10 @@ package at.htl.workloads.department;
 
 import at.htl.model.kino.DepartmentDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 public class DepartmentServiceImpl implements DepartmentService{
 
     private final DepartmentRepository departmentRepository;

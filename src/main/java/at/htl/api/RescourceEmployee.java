@@ -1,29 +1,31 @@
 package at.htl.api;
 
+import at.htl.model.kino.EmployeeDTO;
 import at.htl.model.kino.PersonDTO;
+import at.htl.workloads.employee.Employee;
+import at.htl.workloads.employee.EmployeeService;
 import at.htl.workloads.person.Person;
-import at.htl.workloads.person.PersonService;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
+@Path("/Employee")
+public class RescourceEmployee {
+    private final EmployeeService employeeService;
 
-@Path("/Person")
-public class ResourcePerson {
-
-    private final PersonService personService;
-
-    public ResourcePerson(PersonService personService) {
-        this.personService = personService;
+    public RescourceEmployee(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
-
 
     @Transactional
     @GET
-    @Path("PersonInit")
+    @Path("EmployeeInit")
     @Produces(MediaType.APPLICATION_JSON)
     public String fillData(){
         String line = "";
@@ -33,9 +35,9 @@ public class ResourcePerson {
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                PersonDTO newP = new PersonDTO(Values[1]);
+                EmployeeDTO newE = new EmployeeDTO(Long.parseLong(Values[0]),Long.parseLong(Values[1]),Float.parseFloat(Values[2]));
 
-                personService.addPerson(newP);
+                employeeService.addEmp(newE);
             }
 
         } catch (FileNotFoundException e) {
@@ -48,35 +50,35 @@ public class ResourcePerson {
 
     @Transactional
     @POST
-    @Path("PersonAdd")
-    public String AddData(PersonDTO newPerson){
-        personService.addPerson(newPerson);
+    @Path("EmployeeAdd")
+    public String AddData(EmployeeDTO newEmployee){
+        employeeService.addEmp(newEmployee);
         return "ok";
     }
 
     @Transactional
     @POST
-    @Path("PersonDelete/{id}")
+    @Path("EmployeeDelete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public String DeletData(@PathParam("id")long id){
-        var ToDelete = personService.getPersonById(id);
+        var ToDelete = employeeService.getEmpById(id);
         if(ToDelete != null){
-            personService.deletePerson(id);
+            employeeService.removeEmp(id);
             return "ok";
         }
         return "not ok";
     }
 
-    @Path("GetPerson")
+    @Path("GetEmployee")
     @GET
-    public List<Person> PersonList(){
-        return personService.getAllPeople();
+    public List<Employee> EmployeeList(){
+        return employeeService.getAllEmployees();
     }
 
     @Path("GetPersonByID/{id}")
     @GET
-    public Person FindPerson(@PathParam("id")long id){
-        return personService.getPersonById(id);
+    public Employee FindEmployee(@PathParam("id")long id){
+        return employeeService.getEmpById(id);
     }
 
 }

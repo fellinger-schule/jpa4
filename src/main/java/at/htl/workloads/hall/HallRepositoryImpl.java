@@ -24,7 +24,7 @@ public class HallRepositoryImpl implements HallRepository {
 
     @Override
     public void addHall(Hall hall) {
-        entityManager.persist(hall);
+        entityManager.merge(hall);
     }
 
     @Override

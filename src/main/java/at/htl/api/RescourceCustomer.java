@@ -23,6 +23,7 @@ public class RescourceCustomer {
         this.customerService = customerService;
     }
 
+    @Transactional
     @GET
     @Path("CustomerInit")
     @Produces(MediaType.APPLICATION_JSON)
@@ -68,15 +69,15 @@ public class RescourceCustomer {
         return "not ok";
     }
 
-    @Path("GetPersons")
+    @Path("GetCustomer")
     @GET
-    public List<Customer> PersonList(){
+    public List<Customer> CustomerList(){
         return customerService.getAllCustomers();
     }
 
-    @Path("GetPersonByID/{id}")
+    @Path("GetCustomerByID/{id}")
     @GET
-    public Customer FindPerson(@PathParam("id")long id){
+    public Customer FindCustomer(@PathParam("id")long id){
         return customerService.getCustomerById(id);
     }
 

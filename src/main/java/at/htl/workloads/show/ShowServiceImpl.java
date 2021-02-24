@@ -2,8 +2,10 @@ package at.htl.workloads.show;
 
 import at.htl.model.kino.ShowDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 public class ShowServiceImpl implements ShowService{
     private final ShowRepository showRepository;
 
@@ -28,13 +30,12 @@ public class ShowServiceImpl implements ShowService{
     }
 
     @Override
-    public boolean removeShow(ShowDTO show) {
-        var exists = showRepository.getShowById((show.getId()));
+    public boolean removeShow(long id) {
+        var exists = showRepository.getShowById(id);
         if (exists != null) {
             return false;
         }
-        var newshow = convertIntoNormal(show);
-        showRepository.removeShow(newshow);
+        showRepository.removeShow(exists);
         return true;
     }
 

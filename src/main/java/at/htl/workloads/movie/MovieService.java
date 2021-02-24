@@ -7,6 +7,6 @@ import java.util.List;
 public interface MovieService {
     Movie getMovieById(long id);
     boolean addMovie(MovieDTO movie);
-    boolean removeMovie(MovieDTO movie);
+    boolean removeMovie(long id);
     List<Movie> getAllMovies();
 }

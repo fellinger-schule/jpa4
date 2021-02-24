@@ -1,9 +1,11 @@
 package at.htl.workloads.ticket;
 
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@RequestScoped
 public class TicketRepositoryImpl implements TicketRepository {
     private final EntityManager entityManager;
 

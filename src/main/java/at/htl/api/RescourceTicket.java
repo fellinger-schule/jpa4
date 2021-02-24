@@ -1,29 +1,31 @@
 package at.htl.api;
 
 import at.htl.model.kino.PersonDTO;
+import at.htl.model.kino.TicketDTO;
 import at.htl.workloads.person.Person;
-import at.htl.workloads.person.PersonService;
+import at.htl.workloads.ticket.Ticket;
+import at.htl.workloads.ticket.TicketService;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
+@Path("/Ticket")
+public class RescourceTicket {
+    private final TicketService ticketService;
 
-@Path("/Person")
-public class ResourcePerson {
-
-    private final PersonService personService;
-
-    public ResourcePerson(PersonService personService) {
-        this.personService = personService;
+    public RescourceTicket(TicketService ticketService) {
+        this.ticketService = ticketService;
     }
-
 
     @Transactional
     @GET
-    @Path("PersonInit")
+    @Path("TicketInit")
     @Produces(MediaType.APPLICATION_JSON)
     public String fillData(){
         String line = "";
@@ -33,9 +35,9 @@ public class ResourcePerson {
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                PersonDTO newP = new PersonDTO(Values[1]);
+                TicketDTO newT = new TicketDTO(Long.parseLong(Values[0]),Long.parseLong(Values[1]),Long.parseLong(Values[2]),Float.parseFloat(Values[3]));
 
-                personService.addPerson(newP);
+                ticketService.addTicket(newT);
             }
 
         } catch (FileNotFoundException e) {
@@ -48,35 +50,35 @@ public class ResourcePerson {
 
     @Transactional
     @POST
-    @Path("PersonAdd")
-    public String AddData(PersonDTO newPerson){
-        personService.addPerson(newPerson);
+    @Path("TicketAdd")
+    public String AddData(TicketDTO newTicket){
+        ticketService.addTicket(newTicket);
         return "ok";
     }
 
     @Transactional
     @POST
-    @Path("PersonDelete/{id}")
+    @Path("TicketDelete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public String DeletData(@PathParam("id")long id){
-        var ToDelete = personService.getPersonById(id);
+        var ToDelete = ticketService.getTicketById(id);
         if(ToDelete != null){
-            personService.deletePerson(id);
+            ticketService.removeTicket(id);
             return "ok";
         }
         return "not ok";
     }
 
-    @Path("GetPerson")
+    @Path("GetTicket")
     @GET
-    public List<Person> PersonList(){
-        return personService.getAllPeople();
+    public List<Ticket> TicketList(){
+        return ticketService.getAllTickets();
     }
 
-    @Path("GetPersonByID/{id}")
+    @Path("GetTicketByID/{id}")
     @GET
-    public Person FindPerson(@PathParam("id")long id){
-        return personService.getPersonById(id);
+    public Ticket FindTicket(@PathParam("id")long id){
+        return ticketService.getTicketById(id);
     }
 
 }

@@ -1,9 +1,11 @@
 package at.htl.workloads.movie;
 
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@RequestScoped
 public class MovieRepositoryImpl implements MovieRepository {
     private final EntityManager entityManager;
 
@@ -25,7 +27,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
     @Override
     public void removeMovie(Movie movie) {
-
+        entityManager.remove(movie);
     }
 
     @Override

@@ -2,9 +2,11 @@ package at.htl.workloads.department;
 
 import at.htl.workloads.person.Person;
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@RequestScoped
 public class DepartmentRepositoryImpl implements DepartmentRepository {
 
     private final EntityManager entityManager;

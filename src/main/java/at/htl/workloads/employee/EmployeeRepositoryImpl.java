@@ -1,9 +1,11 @@
 package at.htl.workloads.employee;
 
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@RequestScoped
 public class EmployeeRepositoryImpl implements EmployeeRepository {
     private final EntityManager entityManager;
 

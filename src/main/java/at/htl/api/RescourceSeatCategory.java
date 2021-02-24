@@ -1,8 +1,10 @@
 package at.htl.api;
 
-import at.htl.model.kino.HallDTO;
-import at.htl.workloads.hall.Hall;
-import at.htl.workloads.hall.HallService;
+import at.htl.model.kino.SeatCategoryDTO;
+import at.htl.model.kino.SeatDTO;
+import at.htl.workloads.seat.Seat;
+import at.htl.workloads.seatCategory.SeatCategory;
+import at.htl.workloads.seatCategory.SeatCatigory;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
@@ -16,18 +18,18 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-@Path("/Hall")
-public class RescourceHall {
+@Path("/SeatCategory")
+public class RescourceSeatCategory {
+    private final SeatCategory seatCategory;
 
-    private final HallService hallservice;
-
-    public RescourceHall(HallService hallservice) {
-        this.hallservice = hallservice;
+    public RescourceSeatCategory(SeatCategory seatCategory) {
+        this.seatCategory = seatCategory;
     }
+
 
     @Transactional
     @GET
-    @Path("HallInit")
+    @Path("SeatCategoryInit")
     @Produces(MediaType.APPLICATION_JSON)
     public String fillData(){
         String line = "";
@@ -37,9 +39,9 @@ public class RescourceHall {
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                HallDTO newH = new HallDTO(Long.parseLong(Values[0]),Values[1],Integer.parseInt(Values[2]));
+                SeatCategoryDTO newS = new SeatCategoryDTO(Long.parseLong(Values[0]),Values[1],Integer.parseInt(Values[2]));
 
-                hallservice.addHall(newH);
+                seatCategory.addSeatCat(newS);
             }
 
         } catch (FileNotFoundException e) {
@@ -50,15 +52,16 @@ public class RescourceHall {
         return "ok Hall filled";
     }
 
-    @Path("GetHall")
+    @Path("GetSeatCategory")
     @GET
-    public List<Hall> HallList(){
-        return hallservice.getAllHalls();
+    public List<SeatCatigory> SeatCatigoryList(){
+        return seatCategory.getAllSeatCat();
     }
 
-    @Path("GetHallByID/{id}")
+    @Path("GetSeatCatigoryByID/{id}")
     @GET
-    public Hall FindHall(@PathParam("id")long id){
-        return hallservice.getHallById(id);
+    public SeatCatigory FindSeatCatigory(@PathParam("id")long id){
+        return seatCategory.getSeatCatById(id);
     }
+
 }

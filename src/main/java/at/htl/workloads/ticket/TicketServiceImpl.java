@@ -2,8 +2,10 @@ package at.htl.workloads.ticket;
 
 import at.htl.model.kino.TicketDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 public class TicketServiceImpl implements TicketService{
     private final TicketRepository ticketRepository;
 
@@ -28,13 +30,12 @@ public class TicketServiceImpl implements TicketService{
     }
 
     @Override
-    public boolean removeTicket(TicketDTO ticket) {
-        var exists = ticketRepository.getTicketById((ticket.getId()));
+    public boolean removeTicket(long id) {
+        var exists = ticketRepository.getTicketById(id);
         if (exists != null) {
             return false;
         }
-        var newshow = convertIntoNormal(ticket);
-        ticketRepository.removeTicket(newshow);
+        ticketRepository.removeTicket(exists);
         return true;
     }
 

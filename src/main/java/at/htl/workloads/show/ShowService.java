@@ -7,6 +7,6 @@ import java.util.List;
 public interface ShowService {
     Show getShowById(long id );
     boolean addShow(ShowDTO show);
-    boolean removeShow(ShowDTO show);
+    boolean removeShow(long id);
     List<Show> getAllShows();
 }

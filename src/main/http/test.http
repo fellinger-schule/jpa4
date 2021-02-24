@@ -1,4 +1,4 @@
-GET http://localhost:8987/api/Person/PersonInit
+GET http://localhost:8987/Customer/CustomerInit
 
 ###
 

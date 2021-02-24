@@ -2,8 +2,10 @@ package at.htl.workloads.employee;
 
 import at.htl.model.kino.EmployeeDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 public class EmployeeServiceImpl implements EmployeeService{
      private final EmployeeRepository employeeRepositor;
 
@@ -29,13 +31,12 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public boolean removeEmp(EmployeeDTO employee) {
-        var exists = employeeRepositor.getEmpById(employee.getId());
+    public boolean removeEmp(long id) {
+        var exists = employeeRepositor.getEmpById(id);
         if (exists != null) {
             return false;
         }
-        var newemp = convertIntoNormal(employee);
-        employeeRepositor.removeEmp(newemp);
+        employeeRepositor.removeEmp(exists);
         return true;
     }
 
