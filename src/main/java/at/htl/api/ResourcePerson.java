@@ -49,7 +49,6 @@ public class ResourcePerson {
     @Transactional
     @POST
     @Path("PersonAdd")
-    @Produces(MediaType.APPLICATION_JSON)
     public String AddData(PersonDTO newPerson){
         var test = personService.getPersonById(newPerson.getId());
         if(test != null){
