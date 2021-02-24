@@ -50,10 +50,6 @@ public class ResourcePerson {
     @POST
     @Path("PersonAdd")
     public String AddData(PersonDTO newPerson){
-        var test = personService.getPersonById(newPerson.getId());
-        if(test != null){
-            return "This human is already existing";
-        }
         personService.addPerson(newPerson);
         return "ok";
     }
