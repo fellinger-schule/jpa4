@@ -3,9 +3,11 @@ package at.htl.workloads.hall;
 import at.htl.workloads.employee.Employee;
 import at.htl.workloads.person.Person;
 
+import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+@RequestScoped
 public class HallRepositoryImpl implements HallRepository {
     private final EntityManager entityManager;
 

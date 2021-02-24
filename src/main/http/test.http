@@ -1,4 +1,4 @@
-GET http://localhost:8987/api/Csv/PersonInit
+GET http://localhost:8987/api/Person/PersonInit
 
 ###
 
@@ -6,7 +6,7 @@ GET http://localhost:8987/api/Csv/HallInit
 
 ###
 
-POST http://localhost:8987/api/Csv/PersonAdd
+POST http://localhost:8987/api/Person/PersonAdd
 Content-Type: application/json
 
 {

@@ -1,26 +1,26 @@
 package at.htl.api;
 
 import at.htl.model.kino.PersonDTO;
-import at.htl.workloads.hall.HallService;
+import at.htl.workloads.person.Person;
 import at.htl.workloads.person.PersonService;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.*;
+import java.util.List;
 
 
-@Path("/api/Csv")
+@Path("/Person")
 public class ResourcePerson {
-
-
-
 
     private final PersonService personService;
 
     public ResourcePerson(PersonService personService) {
         this.personService = personService;
     }
+
+
 
     @GET
     @Path("PersonInit")
@@ -67,6 +67,16 @@ public class ResourcePerson {
         return "not ok";
     }
 
+    @Path("GetPersons")
+    @GET
+    public List<Person> PersonList(){
+        return personService.getAllPeople();
+    }
 
+    @Path("GetPersonByID/{id}")
+    @GET
+    public Person FindPerson(@PathParam("id")long id){
+        return personService.getPersonById(id);
+    }
 
 }
