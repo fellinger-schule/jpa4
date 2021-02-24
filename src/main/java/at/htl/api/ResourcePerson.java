@@ -5,9 +5,7 @@ import at.htl.workloads.hall.HallService;
 import at.htl.workloads.person.PersonService;
 
 import javax.transaction.Transactional;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.*;
 
@@ -35,7 +33,7 @@ public class ResourcePerson {
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                PersonDTO newP = new PersonDTO(Long.parseLong(Values[0]),Values[1]);
+                PersonDTO newP = new PersonDTO(Values[1]);
 
                 personService.addPerson(newP);
             }
@@ -47,6 +45,33 @@ public class ResourcePerson {
         }
         return "ook";
     }
+
+    @Transactional
+    @POST
+    @Path("PersonAdd")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String AddData(PersonDTO newPerson){
+        var test = personService.getPersonById(newPerson.getId());
+        if(test != null){
+            return "This human is already existing";
+        }
+        personService.addPerson(newPerson);
+        return "ok";
+    }
+
+    @Transactional
+    @POST
+    @Path("PersonDelete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String DeletData(@PathParam("id")long id){
+        var ToDelete = personService.getPersonById(id);
+        if(ToDelete != null){
+            personService.deletePerson(id);
+            return "ok";
+        }
+        return "not ok";
+    }
+
 
 
 }

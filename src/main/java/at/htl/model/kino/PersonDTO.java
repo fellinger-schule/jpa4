@@ -3,13 +3,10 @@ public class PersonDTO {
     private long id;
     private String name;
 
-    public PersonDTO() {
-    }
-
-    public PersonDTO(long id, String name) {
-        this.id = id;
+    public PersonDTO(String name) {
         this.name = name;
     }
+    public PersonDTO(){}
 
     public long getId() {
         return id;

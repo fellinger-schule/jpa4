@@ -5,7 +5,8 @@ import at.htl.model.kino.PersonDTO;
 import java.util.List;
 
 public interface PersonService {
-    boolean addPerson(PersonDTO newPerson);
+    void addPerson(PersonDTO newPerson);
     List<Person> getAllPeople();
-
+    Person getPersonById(long id);
+    void deletePerson(long id);
 }

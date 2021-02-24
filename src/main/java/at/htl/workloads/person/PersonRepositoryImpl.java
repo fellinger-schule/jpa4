@@ -31,4 +31,9 @@ public class PersonRepositoryImpl implements PersonRepository {
         return query.getResultList();
     }
 
+    public void deletePerson(long id){
+        var person = getPersonById(id);
+        entityManager.remove(person);
+    }
+
 }

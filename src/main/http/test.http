@@ -6,18 +6,18 @@ GET http://localhost:8987/api/Csv/HallInit
 
 ###
 
-POST http://localhost:5432/api/person
+POST http://localhost:8987/api/Csv/PersonAdd
 Content-Type: application/json
 
 {
-  "SSN": "12348789123",
-  "dateOfBirth": "2021-01-01",
-  "firstName": "Hans",
-  "lastName": "Wurst",
-  "isAwesome": false,
-  "awesomeness": 2.3,
-  "wealth": 122.56
+  "Name": "Hans"
 }
+
+
+###
+
+POST http://localhost:8987/api/Csv/PersonDelete/3
+
 
 ###
 

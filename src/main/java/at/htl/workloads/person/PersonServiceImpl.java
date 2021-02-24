@@ -15,17 +15,17 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public boolean addPerson(PersonDTO newPerson) {
+    public void addPerson(PersonDTO newPerson) {
         var existingPerson = personRepository.getPersonById(newPerson.getId());
         if (existingPerson != null) {
-            return false;
-        }
 
-        var person = new Person();
-        person.setId(newPerson.getId());
-        person.setName(newPerson.getName());
-        personRepository.addPerson(person);
-        return true;
+        }
+        else {
+            var person = new Person();
+            person.setId(newPerson.getId());
+            person.setName(newPerson.getName());
+            personRepository.addPerson(person);
+        }
     }
 
     @Override
@@ -33,4 +33,16 @@ public class PersonServiceImpl implements PersonService {
         return personRepository.getAllPeople();
     }
 
+
+    public Person getPersonById(long id) {return personRepository.getPersonById(id);}
+
+    @Override
+    public void deletePerson(long id) {
+        var existingPerson = personRepository.getPersonById(id);
+        if (existingPerson != null) {
+
+            personRepository.deletePerson(id);
+        }
+
+    }
 }
