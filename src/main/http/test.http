@@ -10,7 +10,7 @@ POST http://localhost:8987/api/Csv/PersonAdd
 Content-Type: application/json
 
 {
-  "Name": "Hans"
+  "name": "Hans"
 }
 
 

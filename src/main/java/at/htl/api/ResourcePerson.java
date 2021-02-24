@@ -16,7 +16,7 @@ public class ResourcePerson {
 
 
 
-    PersonService personService;
+    private final PersonService personService;
 
     public ResourcePerson(PersonService personService) {
         this.personService = personService;
