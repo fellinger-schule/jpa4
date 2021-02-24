@@ -2,8 +2,10 @@ package at.htl.workloads.hall;
 
 import at.htl.model.kino.HallDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
 
+@RequestScoped
 public class HallServiceImpl implements HallService{
     private final HallRepository hallRepository;
 
@@ -27,16 +29,7 @@ public class HallServiceImpl implements HallService{
         return true;
     }
 
-    @Override
-    public boolean removeHall(HallDTO hall) {
-        var exists = hallRepository.getHallById((hall.getId()));
-        if (exists != null) {
-            return false;
-        }
-        var newcustomer = convertIntoNormal(hall);
-        hallRepository.removeHall(newcustomer);
-        return true;
-    }
+
 
     @Override
     public List<Hall> getAllHalls() {

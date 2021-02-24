@@ -1,16 +1,19 @@
 package at.htl.api;
 
 import at.htl.model.kino.HallDTO;
+import at.htl.workloads.hall.Hall;
 import at.htl.workloads.hall.HallService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 @Path("/Hall")
 public class RescourceHall {
@@ -43,5 +46,17 @@ public class RescourceHall {
             e.printStackTrace();
         }
         return "ok Hall filled";
+    }
+
+    @Path("GetHall")
+    @GET
+    public List<Hall> PersonList(){
+        return hallservice.getAllHalls();
+    }
+
+    @Path("GetHallByID/{id}")
+    @GET
+    public Hall FindPerson(@PathParam("id")long id){
+        return hallservice.getHallById(id);
     }
 }

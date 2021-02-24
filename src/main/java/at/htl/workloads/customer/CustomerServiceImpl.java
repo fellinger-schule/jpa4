@@ -2,8 +2,9 @@ package at.htl.workloads.customer;
 
 import at.htl.model.kino.CustomerDTO;
 
+import javax.enterprise.context.RequestScoped;
 import java.util.List;
-
+@RequestScoped
 public class CustomerServiceImpl implements CustomerService{
     public final CustomerRepository CustomerRepository;
 
@@ -28,13 +29,12 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public boolean removeCustomer(CustomerDTO customer) {
-        var exists = CustomerRepository.getCustomerById((customer.getId()));
+    public boolean removeCustomer(long id) {
+        var exists = CustomerRepository.getCustomerById((id));
         if (exists != null) {
             return false;
         }
-        var newcustomer = convertIntoNormal(customer);
-        CustomerRepository.removeCustomer(newcustomer);
+        CustomerRepository.removeCustomer(exists);
         return false;
     }
 
