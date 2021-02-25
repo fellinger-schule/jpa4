@@ -1,8 +1,8 @@
-GET http://localhost:8987/Customer/CustomerInit
+GET http://localhost:8987/Show/ShowInit
 
 ###
 
-GET http://localhost:8987/api/Csv/HallInit
+GET http://localhost:8987/Hall/HallInit
 
 ###
 

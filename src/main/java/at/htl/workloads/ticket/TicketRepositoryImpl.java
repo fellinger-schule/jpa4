@@ -22,7 +22,7 @@ public class TicketRepositoryImpl implements TicketRepository {
 
     @Override
     public void addTicket(Ticket ticket) {
-        entityManager.persist(ticket);
+        entityManager.merge(ticket);
     }
 
     @Override

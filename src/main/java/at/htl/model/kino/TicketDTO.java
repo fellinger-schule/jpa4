@@ -7,13 +7,13 @@ public class TicketDTO {
     private long id;
     private long movieId;
     private long customerId;
-    private float price ;
+    private String price ;
     private LocalDateTime purchase_date;
 
     public TicketDTO() {
     }
 
-    public TicketDTO(long id, long movieId, long customerId, float price) {
+    public TicketDTO(long id, long movieId, long customerId, String price) {
         this.id = id;
         this.movieId = movieId;
         this.customerId = customerId;
@@ -52,11 +52,11 @@ public class TicketDTO {
         this.customerId = customerId;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

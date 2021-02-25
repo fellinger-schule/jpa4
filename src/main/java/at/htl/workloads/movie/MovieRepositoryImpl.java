@@ -22,7 +22,7 @@ public class MovieRepositoryImpl implements MovieRepository {
 
     @Override
     public void addMovie(Movie movie) {
-        entityManager.persist(movie);
+        entityManager.merge(movie);
     }
 
     @Override

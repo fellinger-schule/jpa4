@@ -12,7 +12,7 @@ public class SeatCatigory {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String categoryName;
-    private float price ;
+    private String price ;
 
     public long getId() {
         return id;
@@ -30,11 +30,11 @@ public class SeatCatigory {
         this.categoryName = categoryName;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

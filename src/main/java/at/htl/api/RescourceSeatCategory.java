@@ -35,11 +35,11 @@ public class RescourceSeatCategory {
         String line = "";
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\lorda\\Desktop\\Jpa4\\src\\main\\java\\at\\htl\\api\\Csv\\Hall_Data.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\lorda\\Desktop\\Jpa4\\src\\main\\java\\at\\htl\\api\\Csv\\SeatCatagory_Data.csv"));
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                SeatCategoryDTO newS = new SeatCategoryDTO(Long.parseLong(Values[0]),Values[1],Integer.parseInt(Values[2]));
+                SeatCategoryDTO newS = new SeatCategoryDTO(Long.parseLong(Values[0]),Values[1],Values[2]);
 
                 seatCategory.addSeatCat(newS);
             }
@@ -49,7 +49,7 @@ public class RescourceSeatCategory {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return "ok Hall filled";
+        return "ok";
     }
 
     @Path("GetSeatCategory")

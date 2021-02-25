@@ -50,8 +50,8 @@ public class SeatCategoryImpl implements SeatCategory{
     public SeatCatigory convertIntoNormal(SeatCategoryDTO seat){
         var newseat = new SeatCatigory();
         newseat.setCategoryName(seat.getCategoryName());
-        newseat.setPrice(seat.getPrice());
         newseat.setId(seat.getId());
+        newseat.setPrice(seat.getPrice());
         return newseat;
     }
 }

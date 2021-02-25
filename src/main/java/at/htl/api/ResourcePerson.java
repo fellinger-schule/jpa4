@@ -43,7 +43,7 @@ public class ResourcePerson {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return "ook";
+        return "ok";
     }
 
     @Transactional

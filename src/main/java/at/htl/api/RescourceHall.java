@@ -47,7 +47,7 @@ public class RescourceHall {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return "ok Hall filled";
+        return "ok";
     }
 
     @Path("GetHall")

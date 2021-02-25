@@ -24,7 +24,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 
     @Override
     public void addDepartment(Department dept) {
-        entityManager.persist(dept);
+        entityManager.merge(dept);
     }
 
     @Override

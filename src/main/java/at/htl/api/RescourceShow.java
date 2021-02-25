@@ -37,7 +37,7 @@ public class RescourceShow {
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                ShowDTO newS = new ShowDTO(Long.parseLong(Values[0]),Long.parseLong(Values[1]),Long.parseLong(Values[2]), LocalDateTime.parse(Values[3]));
+                ShowDTO newS = new ShowDTO(Long.parseLong(Values[0]),Long.parseLong(Values[1]),Long.parseLong(Values[2]), Values[3]);
 
                 showService.addShow(newS);
             }
@@ -47,7 +47,7 @@ public class RescourceShow {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return "ook";
+        return "ok";
     }
 
     @Transactional

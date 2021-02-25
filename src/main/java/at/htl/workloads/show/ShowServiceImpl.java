@@ -48,8 +48,9 @@ public class ShowServiceImpl implements ShowService{
         var newshow = new Show();
         newshow.setHallId(show.getHallId());
         newshow.setId(show.getId());
-        newshow.setMovieId(show.getMovieId());
         newshow.setShowTime(show.getShowTime());
+        newshow.setMovieId(show.getMovieId());
+
         return newshow;
     }
 }

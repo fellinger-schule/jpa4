@@ -22,7 +22,7 @@ public class ShowRepositoryImpl implements ShowRepository {
 
     @Override
     public void addShow(Show show) {
-        entityManager.persist(show);
+        entityManager.merge(show);
     }
 
     @Override

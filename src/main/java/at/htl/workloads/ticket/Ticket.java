@@ -13,7 +13,7 @@ public class Ticket {
     private long id;
     private long movieId;
     private long customerId;
-    private float price ;
+    private String price ;
     private LocalDateTime purchase_date;
 
     public long getId() {
@@ -40,11 +40,11 @@ public class Ticket {
         this.customerId = customerId;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

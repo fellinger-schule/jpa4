@@ -45,7 +45,7 @@ public class RescourceCustomer {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return "ook";
+        return "ok";
     }
 
     @Transactional

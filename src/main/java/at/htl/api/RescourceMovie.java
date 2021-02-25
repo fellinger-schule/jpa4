@@ -46,7 +46,7 @@ public class RescourceMovie {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return "ook";
+        return "ok";
     }
 
     @Transactional

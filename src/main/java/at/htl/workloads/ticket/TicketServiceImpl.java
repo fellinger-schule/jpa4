@@ -49,8 +49,8 @@ public class TicketServiceImpl implements TicketService{
         newticket.setCustomerId(ticket.getCustomerId());
         newticket.setId(ticket.getId());
         newticket.setMovieId(ticket.getMovieId());
-        newticket.setPrice(ticket.getPrice());
         newticket.setPurchase_date(ticket.getPurchase_date());
+        newticket.setPrice(ticket.getPrice());
         return newticket;
     }
 }

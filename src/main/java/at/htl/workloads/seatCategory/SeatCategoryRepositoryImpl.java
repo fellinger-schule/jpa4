@@ -21,7 +21,7 @@ public class SeatCategoryRepositoryImpl implements SeatCategoryRepository{
 
     @Override
     public void addSeatCat(SeatCatigory seatCatigory) {
-        entityManager.persist(seatCatigory);
+        entityManager.merge(seatCatigory);
     }
 
     @Override

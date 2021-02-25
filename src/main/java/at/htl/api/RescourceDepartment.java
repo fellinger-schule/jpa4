@@ -47,7 +47,7 @@ public class RescourceDepartment {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return "ok Hall filled";
+        return "ok";
     }
 
     @Path("GetDepartment")
@@ -59,7 +59,7 @@ public class RescourceDepartment {
     @Path("GetDepartmentByID/{id}")
     @GET
     public Department FindDepartment(@PathParam("id")long id){
-        return departmentService.getDepartmentById(Showid);
+        return departmentService.getDepartmentById(id);
     }
 
 }

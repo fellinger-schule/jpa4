@@ -14,7 +14,7 @@ public class Show {
     private long id;
     private long hallId ;
     private long movieId;
-    private LocalDateTime showTime ;
+    private String showTime ;
 
     public long getId() {
         return id;
@@ -40,11 +40,11 @@ public class Show {
         this.movieId = movieId;
     }
 
-    public LocalDateTime getShowTime() {
+    public String getShowTime() {
         return showTime;
     }
 
-    public void setShowTime(LocalDateTime showTime) {
+    public void setShowTime(String showTime) {
         this.showTime = showTime;
     }
 }

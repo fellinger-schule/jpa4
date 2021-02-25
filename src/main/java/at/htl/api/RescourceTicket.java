@@ -31,11 +31,11 @@ public class RescourceTicket {
         String line = "";
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\lorda\\Desktop\\Jpa4\\src\\main\\java\\at\\htl\\api\\Csv\\Person_Data.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\lorda\\Desktop\\Jpa4\\src\\main\\java\\at\\htl\\api\\Csv\\Ticket_Data.csv"));
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                TicketDTO newT = new TicketDTO(Long.parseLong(Values[0]),Long.parseLong(Values[1]),Long.parseLong(Values[2]),Float.parseFloat(Values[3]));
+                TicketDTO newT = new TicketDTO(Long.parseLong(Values[0]),Long.parseLong(Values[1]),Long.parseLong(Values[2]),Values[3]);
 
                 ticketService.addTicket(newT);
             }
@@ -45,7 +45,7 @@ public class RescourceTicket {
         }catch (IOException e) {
             e.printStackTrace();
         }
-        return "ook";
+        return "ok";
     }
 
     @Transactional

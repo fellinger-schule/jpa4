@@ -22,7 +22,7 @@ public class SeatRepositoryImpl implements SeatRepository{
 
     @Override
     public void AddSeat(Seat seat) {
-        entityManager.persist(seat);
+        entityManager.merge(seat);
     }
 
     @Override
