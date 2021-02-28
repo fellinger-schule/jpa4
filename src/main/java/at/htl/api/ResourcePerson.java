@@ -24,7 +24,7 @@ public class ResourcePerson {
     @Transactional
     @GET
     @Path("PersonInit")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String fillData(){
         String line = "";
 

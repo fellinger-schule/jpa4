@@ -26,7 +26,7 @@ public class RescourceEmployee {
     @Transactional
     @GET
     @Path("EmployeeInit")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String fillData(){
         String line = "";
 

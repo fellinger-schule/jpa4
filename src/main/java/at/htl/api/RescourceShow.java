@@ -28,7 +28,7 @@ public class RescourceShow {
     @Transactional
     @GET
     @Path("ShowInit")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String fillData(){
         String line = "";
 

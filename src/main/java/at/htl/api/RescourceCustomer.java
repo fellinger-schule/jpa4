@@ -26,7 +26,7 @@ public class RescourceCustomer {
     @Transactional
     @GET
     @Path("CustomerInit")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String fillData(){
         String line = "";
 

@@ -25,7 +25,7 @@ public class RescourceDepartment {
     @Transactional
     @GET
     @Path("DepartmentInit")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String fillData(){
         String line = "";
 
