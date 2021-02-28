@@ -1,11 +1,3 @@
-GET http://localhost:8987/Show/ShowInit
-
-###
-
-GET http://localhost:8987/Hall/HallInit
-
-###
-
 POST http://localhost:8987/api/Person/PersonAdd
 Content-Type: application/json
 
@@ -20,57 +12,23 @@ POST http://localhost:8987/api/Csv/PersonDelete/3
 
 
 ###
-
-POST http://localhost:8080/api/person
-Content-Type: application/json
-
-{
-  "SSN": "987654321512",
-  "dateOfBirth": "2021-01-01",
-  "firstName": "Hans",
-  "lastName": "Wurst",
-  "isAwesome": true,
-  "awesomeness": 2.3,
-  "wealth": 122.56
-}
-
+### All inits
+GET http://localhost:8069/Person/PersonInit
 ###
-
-
-GET http://localhost:8080/api/person/all
+GET http://localhost:8069/Ticket/TicketInit
 ###
-
-POST http://localhost:8080/api/address
-Content-Type: application/json
-
-{
-  "personId": "123456789",
-  "country": "Austria",
-  "city": "Linz",
-  "street": "Industriestrasse",
-  "houseNo": 2
-}
+GET http://localhost:8069/Show/ShowInit
 ###
-
-POST http://localhost:8080/api/address
-Content-Type: application/json
-
-{
-  "personId": "12348789123",
-  "country": "Austria",
-  "city": "Linz",
-  "street": "Industriestrasse",
-  "houseNo": 4
-}
-
+GET http://localhost:8069/SeatCategory/SeatCategoryInit
 ###
-
-GET http://localhost:8080/api/address/all
-
+GET http://localhost:8069/Seat/SeatInit
 ###
-
-GET http://localhost:8080/api/person/citynames
-
+GET http://localhost:8069/Movie/MovieInit
 ###
-
-GET http://localhost:8080/api/person/awesomepeoplecount
+GET http://localhost:8069/Hall/HallInit
+###
+GET http://localhost:8069/Employee/EmployeeInit
+###
+GET http://localhost:8069/Department/DepartmentInit
+###
+GET http://localhost:8069/Customer/CustomerInit
