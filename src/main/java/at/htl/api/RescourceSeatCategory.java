@@ -35,7 +35,7 @@ public class RescourceSeatCategory {
         String line = "";
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\lorda\\Desktop\\Jpa4\\src\\main\\java\\at\\htl\\api\\Csv\\SeatCatagory_Data.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("../src/main/java/at/htl/api/Csv/SeatCatagory_Data.csv"));
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");

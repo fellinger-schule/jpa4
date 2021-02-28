@@ -12,10 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 @Path("/Department")
@@ -33,7 +30,7 @@ public class RescourceDepartment {
         String line = "";
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\lorda\\Desktop\\Jpa4\\src\\main\\java\\at\\htl\\api\\Csv\\Department_Data.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("../src/main/java/at/htl/api/Csv/Department_Data.csv"));
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
