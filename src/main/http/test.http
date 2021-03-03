@@ -1,14 +1,5 @@
-POST http://localhost:3000/Person/PersonAdd
-Content-Type: application/json
 
-{
-  "name": "Hans"
-}
-###
 POST http://localhost:3000/Movie/MovieDelete/1
-###
-
-POST http://localhost:3000/Person/PersonDelete/3
 
 
 ### Gets
@@ -44,3 +35,130 @@ GET http://localhost:3000/Employee/EmployeeInit
 GET http://localhost:3000/Department/DepartmentInit
 ###
 GET http://localhost:3000/Customer/CustomerInit
+
+
+
+### Person tests
+### Get person by ID
+GET http://localhost:3000/Person/GetPersonByID/1
+### Get List of persons
+GET http://localhost:3000/Person/GetPerson
+### add new person
+POST http://localhost:3000/Person/PersonAdd
+Content-Type: application/json
+
+{
+  "name": "Hans"
+}
+###delete person
+POST http://localhost:3000/Person/PersonDelete/3
+
+
+### Customer tests
+GET http://localhost:3000/Customer/GetCustomerByID/1
+###
+GET http://localhost:3000/Customer/GetCustomer
+###
+POST http://localhost:3000/Customer/CustomerDelete/3
+###
+POST http://localhost:3000/Customer/CustomerAdd
+Content-Type: application/json
+
+{
+  "isPrimeMember": true,
+  "numberOfVisits" : 1
+}
+
+
+### Department tests
+GET http://localhost:3000/Department/GetDepartmentByID/1
+###
+GET http://localhost:3000/Department/GetDepartment
+###
+POST http://localhost:3000/Department/DepartmentDelete/3
+###
+
+
+### Emp tests
+### Get person by ID
+GET http://localhost:3000/Employee/GetEmployeeByID/1
+### Get List
+GET http://localhost:3000/Employee/GetEmployee
+### add new
+POST http://localhost:3000/Employee/EmployeeAdd
+Content-Type: application/json
+
+{
+  "departmentId": 1,
+  "salary" : 1000
+}
+###delete person
+POST http://localhost:3000/Employee/EmployeeDelete/3
+
+
+### Hall tests
+### Get  by ID
+GET http://localhost:3000/Hall/GetHallByID/1
+### Get List
+GET http://localhost:3000/Hall/GetHall
+
+
+### Movie tests
+GET http://localhost:3000/Movie/GetMovieByID/1
+###
+GET http://localhost:3000/Movie/GetMovie
+###
+POST http://localhost:3000/Movie/MovieDelete/3
+###
+POST http://localhost:3000/Movie/MovieAdd
+Content-Type: application/json
+
+{
+  "name": "someMovie",
+  "rating" : 1,
+  "duration": 2
+}
+
+### Seat tests
+GET http://localhost:3000/Seat/GetSeatByID/13
+###
+GET http://localhost:3000/Seat/GetSeat
+
+### SeatCat tests
+GET http://localhost:3000/SeatCategory/GetSeatCatigoryByID/25
+###
+GET http://localhost:3000/SeatCategory/GetSeatCategory
+
+
+
+### show tests
+GET http://localhost:3000/Show/GetShowByID/35
+###
+GET http://localhost:3000/Show/GetShow
+###
+POST http://localhost:3000/Show/ShowDelete/33
+###
+POST http://localhost:3000/Show/ShowAdd
+Content-Type: application/json
+
+{
+  "hallId": 1,
+  "movieId" : 1,
+  "showTime": "20:00"
+}
+
+### Ticket tests
+GET http://localhost:3000/Ticket/GetTicketByID/46
+###
+GET http://localhost:3000/Ticket/GetTicket
+###
+POST http://localhost:3000/Ticket/TicketDelete/45
+###
+POST http://localhost:3000/Ticket/TicketAdd
+Content-Type: application/json
+
+{
+  "hallId": 1,
+  "movieId" : 1,
+  "showTime": "20:00"
+}

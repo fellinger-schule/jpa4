@@ -76,7 +76,7 @@ public class RescourceMovie {
         return movieService.getAllMovies();
     }
 
-    @Path("GetPersonByID/{id}")
+    @Path("GetMovieByID/{id}")
     @GET
     public Movie FindMovie(@PathParam("id")long id){
         return movieService.getMovieById(id);

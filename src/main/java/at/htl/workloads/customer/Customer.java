@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Customer extends Person {
+public class Customer {
     @Id
     private long id;
     private boolean isPrimeMember;

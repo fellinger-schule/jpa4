@@ -75,7 +75,7 @@ public class RescourceEmployee {
         return employeeService.getAllEmployees();
     }
 
-    @Path("GetPersonByID/{id}")
+    @Path("GetEmployeeByID/{id}")
     @GET
     public Employee FindEmployee(@PathParam("id")long id){
         return employeeService.getEmpById(id);
