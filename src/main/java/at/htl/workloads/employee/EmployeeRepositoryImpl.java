@@ -22,7 +22,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public void addEmp(Employee employee) {
-        entityManager.persist(employee);
+        entityManager.merge(employee);
     }
 
     @Override

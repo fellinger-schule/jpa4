@@ -92,7 +92,7 @@ Content-Type: application/json
   "departmentId": 1,
   "salary" : 1000
 }
-###delete person
+###delete emp
 POST http://localhost:3000/Employee/EmployeeDelete/3
 
 

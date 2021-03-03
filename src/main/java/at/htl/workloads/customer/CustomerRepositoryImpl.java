@@ -24,7 +24,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public void addCustomer(Customer customer) {
-        entityManager.persist(customer);
+        entityManager.merge(customer);
     }
 
     @Override

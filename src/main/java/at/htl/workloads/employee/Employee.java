@@ -1,11 +1,13 @@
 package at.htl.workloads.employee;
 
+import at.htl.workloads.person.Person;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
 
 @Entity
-public class Employee {
+public class Employee extends Person {
     /*TODO Wie regeln wir die Ids für Person to Employee? */
 
 
