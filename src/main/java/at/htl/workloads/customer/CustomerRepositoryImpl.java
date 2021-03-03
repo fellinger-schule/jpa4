@@ -32,6 +32,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
         entityManager.remove(customer);
     }
 
+
     @Override
     public List<Customer> getAllCustomers() {
         var query = entityManager.createQuery("select p from Customer p", Customer.class);

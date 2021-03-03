@@ -1,34 +1,46 @@
-POST http://localhost:8987/api/Person/PersonAdd
+POST http://localhost:3000/Person/PersonAdd
 Content-Type: application/json
 
 {
   "name": "Hans"
 }
-
-
+###
+POST http://localhost:3000/Movie/MovieDelete/1
 ###
 
-POST http://localhost:8987/api/Csv/PersonDelete/3
+POST http://localhost:3000/Person/PersonDelete/3
 
 
+### Gets
+GET http://localhost:3000/Person/GetPersonByID/1
 ###
+GET http://localhost:3000/Person/GetPerson
+###
+GET http://localhost:3000/Customer/GetCustomerByID/1
+###
+GET http://localhost:3000/Customer/GetCustomer
+
+
+
+
+
 ### All inits
-GET http://localhost:8069/Person/PersonInit
+GET http://localhost:3000/Person/PersonInit
 ###
-GET http://localhost:8069/Ticket/TicketInit
+GET http://localhost:3000/Ticket/TicketInit
 ###
-GET http://localhost:8069/Show/ShowInit
+GET http://localhost:3000/Show/ShowInit
 ###
-GET http://localhost:8069/SeatCategory/SeatCategoryInit
+GET http://localhost:3000/SeatCategory/SeatCategoryInit
 ###
-GET http://localhost:8069/Seat/SeatInit
+GET http://localhost:3000/Seat/SeatInit
 ###
-GET http://localhost:8069/Movie/MovieInit
+GET http://localhost:3000/Movie/MovieInit
 ###
-GET http://localhost:8069/Hall/HallInit
+GET http://localhost:3000/Hall/HallInit
 ###
-GET http://localhost:8069/Employee/EmployeeInit
+GET http://localhost:3000/Employee/EmployeeInit
 ###
-GET http://localhost:8069/Department/DepartmentInit
+GET http://localhost:3000/Department/DepartmentInit
 ###
-GET http://localhost:8069/Customer/CustomerInit
+GET http://localhost:3000/Customer/CustomerInit

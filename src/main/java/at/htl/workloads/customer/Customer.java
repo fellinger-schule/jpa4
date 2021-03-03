@@ -1,13 +1,14 @@
 package at.htl.workloads.customer;
 
+import at.htl.workloads.person.Person;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Customer {
-    /*TODO Wie regeln wir die Ids für Person to Customer? */
+public class Customer extends Person {
     @Id
     private long id;
     private boolean isPrimeMember;

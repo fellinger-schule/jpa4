@@ -14,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public Customer getCustomerById(long id) {
-        return null;
+        return CustomerRepository.getCustomerById(id);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public List<Customer> getAllCustomers() {
-        return null;
+        return CustomerRepository.getAllCustomers();
     }
 
     public Customer convertIntoNormal(CustomerDTO customer){
