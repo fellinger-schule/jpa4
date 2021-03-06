@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 
 public class ShowDTO {
     private long id;
-    private long hallId ;
+    private long hallId;
+    private String hallName;
     private long movieId;
+    private String movieName;
     private String showTime ;
 
     public ShowDTO() {
@@ -15,6 +17,15 @@ public class ShowDTO {
         this.id = id;
         this.hallId = hallId;
         this.movieId = movieId;
+        this.showTime = showTime;
+    }
+
+    public ShowDTO(long id, long hallId, String hallName, long movieId, String movieName, String showTime) {
+        this.id = id;
+        this.hallId = hallId;
+        this.hallName = hallName;
+        this.movieId = movieId;
+        this.movieName = movieName;
         this.showTime = showTime;
     }
 

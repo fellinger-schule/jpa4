@@ -9,6 +9,7 @@ import at.htl.workloads.person.Person;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -52,26 +53,24 @@ public class RescourceMovie {
     @Transactional
     @POST
     @Path("MovieAdd")
-    public String AddData(MovieDTO newMovie){
+    public Response.Status AddData(MovieDTO newMovie){
         movieService.addMovie(newMovie);
-        return "ok";
+        return Response.Status.OK;
     }
 
     @Transactional
-    @POST
+    @DELETE
     @Path("MovieDelete/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String DeletData(@PathParam("id")long id){
-        var ToDelete = movieService.getMovieById(id);
-        if(ToDelete != null){
-            movieService.removeMovie(id);
-            return "ok";
+    public Response.Status DeletData(@PathParam("id")long id){
+        if(movieService.removeMovie(id)){
+            return Response.Status.OK;
         }
-        return "not ok";
+        return Response.Status.BAD_REQUEST;
     }
 
     @Path("GetMovie")
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Movie> PersonList(){
         return movieService.getAllMovies();
     }

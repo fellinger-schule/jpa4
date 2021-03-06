@@ -20,10 +20,6 @@ public class ShowServiceImpl implements ShowService{
 
     @Override
     public boolean addShow(ShowDTO show) {
-        var exists = showRepository.getShowById((show.getId()));
-        if (exists != null) {
-            return false;
-        }
         var newshow = convertIntoNormal(show);
         showRepository.addShow(newshow);
         return true;
@@ -33,10 +29,10 @@ public class ShowServiceImpl implements ShowService{
     public boolean removeShow(long id) {
         var exists = showRepository.getShowById(id);
         if (exists != null) {
-            return false;
+            showRepository.removeShow(exists);
+            return true;
         }
-        showRepository.removeShow(exists);
-        return true;
+        return false;
     }
 
     @Override

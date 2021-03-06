@@ -32,9 +32,9 @@ public class CustomerServiceImpl implements CustomerService{
     public boolean removeCustomer(long id) {
         var exists = CustomerRepository.getCustomerById((id));
         if (exists != null) {
-            return false;
+            CustomerRepository.removeCustomer(exists);
+            return true;
         }
-        CustomerRepository.removeCustomer(exists);
         return false;
     }
 

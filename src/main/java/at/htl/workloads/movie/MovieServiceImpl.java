@@ -20,12 +20,8 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public boolean addMovie(MovieDTO movie) {
-        var exists = movieRepository.getMovieById((movie.getId()));
-        if (exists != null) {
-            return false;
-        }
-        var newcustomer = convertIntoNormal(movie);
-        movieRepository.addMovie(newcustomer);
+        var newMovie = convertIntoNormal(movie);
+        movieRepository.addMovie(newMovie);
         return true;
     }
 
@@ -33,10 +29,10 @@ public class MovieServiceImpl implements MovieService {
     public boolean removeMovie(long id) {
         var exists = movieRepository.getMovieById(id);
         if (exists != null) {
-            return false;
+            movieRepository.removeMovie(exists);
+            return true;
         }
-        movieRepository.removeMovie(exists);
-        return true;
+        return false;
     }
 
     @Override

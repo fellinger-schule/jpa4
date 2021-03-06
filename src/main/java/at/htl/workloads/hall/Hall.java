@@ -12,7 +12,7 @@ public class Hall {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
     private String location;
-    private int numberOfSeats ;
+    private int numberOfSeats;
 
     public long getId() {
         return id;

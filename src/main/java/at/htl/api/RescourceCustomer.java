@@ -9,6 +9,7 @@ import at.htl.workloads.person.Person;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -57,16 +58,15 @@ public class RescourceCustomer {
     }
 
     @Transactional
-    @POST
+    @DELETE
     @Path("CustomerDelete/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String DeletData(@PathParam("id")long id){
+    public Response.Status DeletData(@PathParam("id")long id){
         var ToDelete = customerService.getCustomerById(id);
         if(ToDelete != null){
             customerService.removeCustomer(id);
-            return "ok";
+            return Response.Status.OK;
         }
-        return "not ok";
+        return Response.Status.BAD_REQUEST;
     }
 
     @Path("GetCustomer")
