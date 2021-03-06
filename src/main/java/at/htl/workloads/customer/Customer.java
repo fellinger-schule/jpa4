@@ -9,18 +9,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Customer extends Person {
-    @Id
-    private long id;
     private boolean isPrimeMember;
     private int numberOfVisits;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public boolean isPrimeMember() {
         return isPrimeMember;

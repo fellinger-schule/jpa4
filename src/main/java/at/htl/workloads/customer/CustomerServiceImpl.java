@@ -46,6 +46,7 @@ public class CustomerServiceImpl implements CustomerService{
     public Customer convertIntoNormal(CustomerDTO customer){
         var newcustomer = new Customer();
         newcustomer.setId(customer.getId());
+        newcustomer.setName(customer.getName());
         newcustomer.setNumberOfVisits(customer.getNumberOfVisits());
         newcustomer.setPrimeMember(customer.isPrimeMember());
         return newcustomer;

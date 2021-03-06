@@ -1,6 +1,8 @@
 package at.htl.model.kino;
 public class CustomerDTO {
     private long id;
+
+    private String name;
     private boolean isPrimeMember;
     private int numberOfVisits;
 
@@ -8,8 +10,9 @@ public class CustomerDTO {
 
     }
 
-    public CustomerDTO(long id,boolean isPrimeMember,int numberOfVisits){
+    public CustomerDTO(long id,String name, boolean isPrimeMember,int numberOfVisits){
         this.id=id;
+        this.name = name;
         this.isPrimeMember=isPrimeMember;
         this.numberOfVisits=numberOfVisits;
     }
@@ -20,6 +23,14 @@ public class CustomerDTO {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public boolean isPrimeMember() {

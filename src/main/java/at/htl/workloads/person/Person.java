@@ -2,15 +2,13 @@ package at.htl.workloads.person;
 
 import javax.persistence.*;
 
-@Entity
-public class Person {
+@MappedSuperclass
+public abstract class Person {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
-    private String name;
-
-
+    protected long id;
+    protected String name;
 
     public long getId() {
         return id;

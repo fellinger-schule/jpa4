@@ -31,11 +31,11 @@ public class RescourceCustomer {
         String line = "";
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("../src/main/java/at/htl/api/Csv/Customer_Data.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("../src/main/java/at/htl/api/Csv/Customer_Data2.csv"));
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                CustomerDTO newC = new CustomerDTO(Integer.parseInt(Values[0]),Boolean.parseBoolean(Values[1]),Integer.parseInt(Values[2]));
+                CustomerDTO newC = new CustomerDTO(Integer.parseInt(Values[0]),Values[1], Boolean.parseBoolean(Values[2]),Integer.parseInt(Values[3]));
 
                 customerService.addCustomer(newC);
             }
