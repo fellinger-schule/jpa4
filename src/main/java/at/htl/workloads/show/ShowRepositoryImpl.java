@@ -28,7 +28,6 @@ public class ShowRepositoryImpl implements ShowRepository {
     @Override
     public void removeShow(Show show) {
         entityManager.remove(show);
-
     }
 
     @Override

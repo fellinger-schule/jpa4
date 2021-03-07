@@ -16,6 +16,13 @@ public class Movie {
     private float rating ;
     private float duration ;
 
+    public Movie() {
+    }
+
+    public Movie(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }

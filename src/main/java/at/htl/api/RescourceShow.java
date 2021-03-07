@@ -38,9 +38,9 @@ public class RescourceShow {
             br.readLine();
             while((line = br.readLine()) != null){
                 String[] Values = line.split(",");
-                ShowDTO newS = new ShowDTO(Long.parseLong(Values[0]),Long.parseLong(Values[1]),Long.parseLong(Values[2]), Values[3]);
+                //ShowDTO newS = new ShowDTO(Long.parseLong(Values[0]),Long.parseLong(Values[1]),Long.parseLong(Values[2]), Values[3]);
 
-                showService.addShow(newS);
+                //showService.addShow(newS);
             }
 
         } catch (FileNotFoundException e) {
@@ -53,6 +53,7 @@ public class RescourceShow {
 
     @Transactional
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Path("ShowAdd")
     public Response.Status AddData(ShowDTO newShow){
         showService.addShow(newShow);
@@ -73,13 +74,13 @@ public class RescourceShow {
 
     @Path("GetShow")
     @GET
-    public List<Show> ShowList(){
+    public List<ShowDTO> ShowList(){
         return showService.getAllShows();
     }
 
     @Path("GetShowByID/{id}")
     @GET
-    public Show FindShow(@PathParam("id")long id){
+    public ShowDTO FindShow(@PathParam("id")long id){
         return showService.getShowById(id);
     }
 

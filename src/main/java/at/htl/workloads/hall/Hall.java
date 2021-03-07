@@ -1,9 +1,6 @@
 package at.htl.workloads.hall;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Hall {
@@ -13,6 +10,13 @@ public class Hall {
     private long id;
     private String location;
     private int numberOfSeats;
+
+    public Hall() {
+    }
+
+    public Hall(long id) {
+        this.id = id;
+    }
 
     public long getId() {
         return id;

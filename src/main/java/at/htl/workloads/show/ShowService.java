@@ -5,8 +5,8 @@ import at.htl.model.kino.ShowDTO;
 import java.util.List;
 
 public interface ShowService {
-    Show getShowById(long id );
+    ShowDTO getShowById(long id );
     boolean addShow(ShowDTO show);
     boolean removeShow(long id);
-    List<Show> getAllShows();
+    List<ShowDTO> getAllShows();
 }

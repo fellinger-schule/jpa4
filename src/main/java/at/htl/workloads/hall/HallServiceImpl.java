@@ -37,8 +37,7 @@ public class HallServiceImpl implements HallService{
     }
 
     public Hall convertIntoNormal(HallDTO hall){
-        var newhall = new Hall();
-        newhall.setId(hall.getId());
+        var newhall = new Hall(hall.getId());
         newhall.setLocation(hall.getLocation());
         newhall.setNumberOfSeats(hall.getNumberOfSeats());
         return newhall;

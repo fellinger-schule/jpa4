@@ -1,9 +1,9 @@
 package at.htl.workloads.show;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import at.htl.workloads.hall.Hall;
+import at.htl.workloads.movie.Movie;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,8 +12,12 @@ public class Show {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-    private long hallId ;
-    private long movieId;
+    @ManyToOne
+    @JoinColumn(name = "hall_id")
+    private Hall hall;
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
     private String showTime ;
 
     public long getId() {
@@ -24,21 +28,19 @@ public class Show {
         this.id = id;
     }
 
-    public long getHallId() {
-        return hallId;
+    public Hall getHall() {
+        return this.hall;
     }
 
-    public void setHallId(long hallId) {
-        this.hallId = hallId;
+    public void setHall(Hall hall) {
+        this.hall = hall;
     }
 
-    public long getMovieId() {
-        return movieId;
+    public Movie getMovie() {
+        return this.movie;
     }
 
-    public void setMovieId(long movieId) {
-        this.movieId = movieId;
-    }
+    public void setMovie(Movie movie) { this.movie = movie; }
 
     public String getShowTime() {
         return showTime;

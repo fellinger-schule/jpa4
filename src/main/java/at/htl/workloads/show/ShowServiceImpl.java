@@ -1,9 +1,16 @@
 package at.htl.workloads.show;
 
+import at.htl.api.RescourceShow;
 import at.htl.model.kino.ShowDTO;
+import at.htl.workloads.hall.Hall;
+import at.htl.workloads.movie.Movie;
+import at.htl.workloads.movie.MovieRepository;
+import at.htl.workloads.movie.MovieService;
+import at.htl.workloads.movie.MovieServiceImpl;
 
 import javax.enterprise.context.RequestScoped;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequestScoped
 public class ShowServiceImpl implements ShowService{
@@ -14,8 +21,8 @@ public class ShowServiceImpl implements ShowService{
     }
 
     @Override
-    public Show getShowById(long id) {
-        return showRepository.getShowById(id);
+    public ShowDTO getShowById(long id) {
+        return this.convertToDto(showRepository.getShowById(id));
     }
 
     @Override
@@ -36,17 +43,31 @@ public class ShowServiceImpl implements ShowService{
     }
 
     @Override
-    public List<Show> getAllShows() {
-        return showRepository.getAllShows();
+    public List<ShowDTO> getAllShows() {
+        return showRepository
+                .getAllShows()
+                .stream()
+                .map((show -> { return convertToDto(show);}))
+                .collect(Collectors.toList());
     }
 
     public Show convertIntoNormal(ShowDTO show){
-        var newshow = new Show();
-        newshow.setHallId(show.getHallId());
-        newshow.setId(show.getId());
-        newshow.setShowTime(show.getShowTime());
-        newshow.setMovieId(show.getMovieId());
+        var newShow = new Show();
+        newShow.setId(show.getId());
+        newShow.setHall(new Hall(show.getHallId()));
+        newShow.setMovie(new Movie(show.getMovieId()));
+        newShow.setShowTime(show.getShowTime());
 
-        return newshow;
+        return newShow;
+    }
+
+    public ShowDTO convertToDto(Show show) {
+        return new ShowDTO(show.getId(),
+                           show.getHall().getId(),
+                           show.getHall().getLocation(),
+                           show.getMovie().getId(),
+                           show.getMovie().getName(),
+                           show.getShowTime()
+        );
     }
 }
