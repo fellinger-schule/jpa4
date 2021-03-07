@@ -1,8 +1,11 @@
 package at.htl.workloads.ticket;
 
 import at.htl.model.kino.TicketDTO;
+import at.htl.workloads.customer.Customer;
+import at.htl.workloads.show.Show;
 
 import javax.enterprise.context.RequestScoped;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequestScoped
@@ -20,10 +23,6 @@ public class TicketServiceImpl implements TicketService{
 
     @Override
     public boolean addTicket(TicketDTO ticket) {
-        var exists = ticketRepository.getTicketById((ticket.getId()));
-        if (exists != null) {
-            return false;
-        }
         var newshow = convertIntoNormal(ticket);
         ticketRepository.addTicket(newshow);
         return true;
@@ -32,7 +31,7 @@ public class TicketServiceImpl implements TicketService{
     @Override
     public boolean removeTicket(long id) {
         var exists = ticketRepository.getTicketById(id);
-        if (exists != null) {
+        if (exists == null) {
             return false;
         }
         ticketRepository.removeTicket(exists);
@@ -45,12 +44,19 @@ public class TicketServiceImpl implements TicketService{
     }
 
     public Ticket convertIntoNormal(TicketDTO ticket){
-        var newticket = new Ticket();
-        newticket.setCustomerId(ticket.getCustomerId());
-        newticket.setId(ticket.getId());
-        newticket.setMovieId(ticket.getMovieId());
-        newticket.setPurchase_date(ticket.getPurchase_date());
-        newticket.setPrice(ticket.getPrice());
-        return newticket;
+        var newTicket = new Ticket();
+
+        var cust = new Customer();
+        cust.setId(ticket.getCustomerId());
+        var show = new Show();
+        show.setId(ticket.getShowId());
+
+        newTicket.setCustomer(cust);
+        newTicket.setShow(show);
+
+        newTicket.setPrice("10");
+        newTicket.setPurchase_date(LocalDateTime.now());
+
+        return newTicket;
     }
 }

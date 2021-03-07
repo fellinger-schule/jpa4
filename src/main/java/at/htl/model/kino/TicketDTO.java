@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class TicketDTO {
     private long id;
-    private long movieId;
+    private long showId;
     private long customerId;
     private String price ;
     private LocalDateTime purchase_date;
@@ -13,9 +13,9 @@ public class TicketDTO {
     public TicketDTO() {
     }
 
-    public TicketDTO(long id, long movieId, long customerId, String price) {
+    public TicketDTO(long id, long showId, long customerId, String price) {
         this.id = id;
-        this.movieId = movieId;
+        this.showId = showId;
         this.customerId = customerId;
         this.price = price;
     }
@@ -36,12 +36,12 @@ public class TicketDTO {
         this.id = id;
     }
 
-    public long getMovieId() {
-        return movieId;
+    public long getShowId() {
+        return showId;
     }
 
-    public void setMovieId(long movieId) {
-        this.movieId = movieId;
+    public void setShowId(long showId) {
+        this.showId = showId;
     }
 
     public long getCustomerId() {

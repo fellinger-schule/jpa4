@@ -1,9 +1,9 @@
 package at.htl.workloads.ticket;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import at.htl.workloads.customer.Customer;
+import at.htl.workloads.show.Show;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,9 +11,14 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-    private long movieId;
-    private long customerId;
-    private String price ;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "show_id")
+    private Show show;
+
+    private String price;
     private LocalDateTime purchase_date;
 
     public long getId() {
@@ -24,20 +29,20 @@ public class Ticket {
         this.id = id;
     }
 
-    public long getMovieId() {
-        return movieId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setMovieId(long movieId) {
-        this.movieId = movieId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public long getCustomerId() {
-        return customerId;
+    public Show getShow() {
+        return show;
     }
 
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
+    public void setShow(Show show) {
+        this.show = show;
     }
 
     public String getPrice() {
